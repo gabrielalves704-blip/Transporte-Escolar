@@ -1,46 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Seleciona o formulário
   const cadastroForm = document.getElementById("cadastroForm");
-  if (!cadastroForm) return;
 
   cadastroForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // impede o envio padrão
+    e.preventDefault();
 
-    // Coleta dados pessoais
-    const nome = document.getElementById("nome")?.value || "";
-    const cpf = document.getElementById("cpf")?.value || "";
-    const dataNascimento = document.getElementById("dataNascimento")?.value || "";
-    const email = document.getElementById("email")?.value || "";
-    const senha = document.getElementById("senha")?.value || "";
-
-    // Coleta dados acadêmicos
-    const nivel = document.getElementById("nivel")?.value || "";
-    const instituicao = document.getElementById("instituicao")?.value || "";
-    const serie = document.getElementById("serie")?.value || "";
-    const semestre = document.getElementById("semestre")?.value || "";
-    const matricula = document.getElementById("matricula")?.value || "";
-    const curso = document.getElementById("curso")?.value || "";
-    const turno = document.getElementById("turno")?.value || "";
-
-    // Monta objeto de dados
+    // Coleta os dados do formulário
     const data = {
-      nome,
-      cpf,
-      dataNascimento,
-      email,
-      senha,
-      nivel,
-      instituicao,
-      serieOuSemestre: serie || semestre,
-      matriculaOuCurso: matricula || curso,
-      turno
+      nome: document.getElementById("nome").value,
+      cpf: document.getElementById("cpf").value,
+      dataNascimento: document.getElementById("dataNascimento").value,
+      email: document.getElementById("email").value,
+      senha: document.getElementById("senha").value
     };
 
-    // URL do seu Web App
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzOsK9fWINq8BJ3DHNc_GpnpJ_ErHa33bu6xNXooYjRRMFsyb-LIscrsQ92nGWX1MYu/exec";
-
-    // Envia dados para a planilha via Apps Script
-    fetch(scriptURL, {
+    // Envia os dados para a Netlify Function
+    fetch("/.netlify/functions/saveForm", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -48,12 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(res => res.json())
       .then(res => {
         console.log("Salvo com sucesso:", res);
-        // Redireciona para a próxima página
+
+        // Redireciona para a próxima página após salvar
         window.location.href = "dados-academicos.html";
       })
       .catch(err => {
         console.error("Erro ao salvar:", err);
-        alert("Erro ao salvar os dados. Tente novamente.");
+        alert("Ocorreu um erro ao salvar os dados. Tente novamente.");
       });
   });
 });
