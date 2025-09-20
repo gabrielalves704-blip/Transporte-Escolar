@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dados Acadêmicos - Transporte Escolar</title>
+  <link rel="stylesheet" href="dados-academicos.css">
+</head>
+<body>
+  <div class="form-container">
+    <div class="form-card">
+      <h2>Dados Acadêmicos</h2>
+      <p>Preencha as informações acadêmicas do estudante</p>
+
+      <form id="academicosForm">
+        <!-- Nível -->
+        <div class="form-group">
+          <label for="nivel">Nível de Ensino</label>
+          <select id="nivel" required>
+            <option value="">Selecione</option>
+            <option value="basico">Nível Básico</option>
+            <option value="superior">Nível Superior</option>
+          </select>
+        </div>
+
+        <!-- Campos dinâmicos -->
+        <div id="dynamic-fields"></div>
+
+        <!-- Turno -->
+        <div class="form-group hidden" id="turno-group">
+          <label for="turno">Turno</label>
+          <select id="turno" required>
+            <option value="">Selecione</option>
+            <option value="matutino">Matutino</option>
+            <option value="vespertino">Vespertino</option>
+            <option value="noturno">Noturno</option>
+            <option value="integral">Integral</option>
+          </select>
+        </div>
+
+        <!-- Botão -->
+        <button type="submit" class="btn btn-primary hidden" id="btnContinuar">Continuar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="dados-academicos.js"></script>
+</body>
+</html>

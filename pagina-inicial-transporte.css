@@ -1,0 +1,142 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Cores */
+:root {
+  --primary: #0c05a3;
+  --primary-foreground: #ffffff;
+  --background: #f0f4ff;
+  --muted: #e5e7eb;
+  --text-muted: #6b7280;
+  --border: #d1d5db;
+}
+
+/* Header */
+.header {
+  background: var(--background);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+.header .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 0.25rem;
+}
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+.btn-secondary {
+  background: var(--primary-foreground);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(to bottom right, #e0f2ff, #c7d2fe);
+}
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Features */
+.features {
+  padding: 4rem 1rem;
+  background: var(--background);
+  text-align: center;
+}
+.features h3 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.card {
+  background: var(--primary-foreground);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  width: 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.card h4 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.cta h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.cta p {
+  margin-bottom: 2rem;
+}
+
+/* Footer */
+.footer {
+  background: var(--muted);
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+}
